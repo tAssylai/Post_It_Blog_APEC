@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body class="min-h-screen p-4 md:p-8 flex justify-center items-start">
+
+    <div class="max-w-4xl w-full bg-[#EDE9E3] rounded-xl overflow-hidden shadow-2xl">
+        <div class="bg-red p-4 flex items-center gap-4">
+            <button class="w-12 h-12 flex items-center justify-center" onclick="window.location.href='profile.html'">
+                <div class="w-8 h-8 border-2 border-white rounded-full flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/>
+        </svg>
+    </div>
+</button>
+            <h1 class="pixel-font text-white md:text-4xl" style="margin: auto">Settings / Account Overview</h1>
+        </div>
+
+        <div class="p-6 md:p-10">
+            <div class="flex flex-col md:flex-row gap-8 items-center md:mb-10">
+                <div class="relative mt-[-85px] ml-14">
+                    <div class="w-[7rem] h-[7rem] bg-white rounded-full border-[4px] border-red-500 p-1 shadow-xl">
+                        <img src="https://i1-e.pinimg.com/control1/736x/18/c5/4c/18c54c41bb0b46f1f7e848b2036adee8.jpg" alt="User Avatar" class="rounded-full ">
+                    </div>
+                    <div class="text-center mt-2">
+                        <h2 class="text-4xl font-regular leading-none">User11037</h2>
+                        <p class="text-red-500 text-lg font-['Roboto_Condensed']">@strawberrychoco</p>
+                    </div>
+                </div>
+
+                <div class="flex-1 bg-white border-[3.5px] border-red rounded-3xl p-4 flex flex-col md:flex-row gap-6 items-center relative overflow-hidden mt-[-20px]">
+                    <div class="flex gap-8 text-center px-2">
+                        <div>
+                            <p class="text-2xl uppercase">Followers</p>
+                            <p class="text-red-500 text-6xl" style="-webkit-text-stroke: #151515 0.9px;">10.3K</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl uppercase">Following</p>
+                            <p class="text-red-500 text-6xl" style="-webkit-text-stroke: #151515 0.9px;">677</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-1 border-l-0 md:border-l-2 border-red-700 pl-0 md:pl-6">
+                        <h3 class="text-red-500 uppercase text-5xl" style="-webkit-text-stroke: #151515 0.9px;"">My Bio</h3>
+                        <p class="text-xs font-['Roboto_Condensed']">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+                        </p>
+                    </div>
+
+                  <div class="cat-illustration" style="width: 60px;">
+                            <img src="https://github.com/tAssylai/Project/blob/main/image%2010.png?raw=true" alt="Cat Illustration" class="cat-illustration">
+                        </div>
+                    </div>
+                </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <div class="space-y-2 mt-[-20px]">
+                    <h3 class="text-2xl">Account & Settings</h3>
+                    
+                    <div class="space-y-2">
+                            <span class="text-xl text-red-700 uppercase">User Profile & Security</span>
+                            <div class="mt-4 space-y-4">
+                                <div>
+                                    <span class="text-lg text-gray-400 mb-1">Display Name</span>
+                                    <input type="text" class="input-underline">
+                                </div>
+                                <div>
+                                    <span class="text-lg text-gray-400  mb-1">Username</span>
+                                    <input type="text" class="input-underline">
+                                </div>
+                                <div>
+                                    <span class="text-lg text-gray-400  mb-1">Email</span>
+                                    <input type="email" class="input-underline">
+                                </div>
+                            </div>
+                        </label>
+
+                        <div>
+                            <span class=" text-lg mb-3">Primary Language</span>
+                            <div class="relative">
+                                <select class="w-full bg-white border-4 rounded-[10px] border-red px-4 appearance-none outline-none text-gray-500">
+                                    <option disabled selected>Select your language</option>
+                                    <option>English</option>
+                                    <option>Kazakh</option>
+                                    <option>Russian</option>
+                                    <option>Spanish</option>
+                                    <option>French</option>
+                                    <option>German</option>
+                                    <option>Japanese</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <span class="text-xl mb-3">Integrations & API Keys</span>
+                            <button class="bg-white border-4 border-red-500 rounded-[10px] px-10 text-red-500 text-xl hover:scale-[1.02]">
+                                Manage API keys</button>
+                            </div>
+
+                        <div class="pt-4">
+                            <span class=" text-xl mb-2">Password</span>
+                            <div class="space-y-3">
+                                <input type="password" placeholder="********" class="input-underline">
+                                <input type="password" placeholder="Repeat Password" class="input-underline text-lg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-red-800 text-4xl uppercase text-center mb-4 border-b-2 border-red-800 pb-2">Advanced Styling</h3>
+                        <div class="flex justify-between items-center gap-4">
+                            <div class="flex-1">
+                                <p class="text-center text-red-800 text-xl mt-[-10px] mb-2">App Theme</p>
+                                <div class="flex justify-center gap-2">
+                                    <button class="w-16 h-16 rounded-lg border-[3px] border-red-500 bg-white"></button>
+                                    <button class="w-16 h-16 rounded-lg border-[3px] border-red-500 bg-red-800"></button>
+                                    <button class="w-16 h-16 rounded-lg border-[3px] border-red-500">
+                                        <img src="https://i.pinimg.com/1200x/05/86/79/0586798987a8903fc7375c0c908f2474.jpg" alt="Custom Theme" class="w-full h-full object-cover rounded-lg">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="w-full bg-white mt-4 border-4 border-red text-red-800 rounded-xl text-xl">
+                            Advanced Style Settings (modal)
+                        </button>
+                    </div>
+
+                    <div>
+                        <h3 class="text-red-800 text-4xl text-center mb-4 border-b-2 border-red-800 pb-2 uppercase">Notifications (Detailed)</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex flex-col gap-2">
+                                <p class="text-xl">Dashboard Activity</p>
+                                <div class="flex justify-between items-center pl-4">
+                                    <span class="text-sm font-['Roboto_Condensed']">Email Updates</span>
+                                    <div class="toggle-switch" onclick="this.classList.toggle('active')">
+                                        <div class="toggle-circle"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col gap-2">
+                                <p class="text-xl">Post Activity</p>
+                                <div class="space-y-3 pl-4">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm font-['Roboto_Condensed']">New Comment</span>
+                                        <div class="toggle-switch" onclick="this.classList.toggle('active')">
+                                            <div class="toggle-circle"></div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm font-['Roboto_Condensed']">Post Like</span>
+                                        <div class="toggle-switch active" onclick="this.classList.toggle('active')">
+                                            <div class="toggle-circle"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center pt-6">
+                        <button class="flex items-center gap-2 border-4 border-red text-red text-xl px-6 py-2 rounded-xl hover:bg-red hover:text-red-800 transition-all">
+                            Log out 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+                        </button>
+                        
+                        <button class="flex items-center gap-2  text-red text-xl px-6 py-2 rounded-xl hover:bg-red hover:text-red-800 transition-all border-4 border-red">
+                            Save changes
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

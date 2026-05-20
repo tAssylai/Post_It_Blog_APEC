@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="messages.css">
+</head>
+<body>
+    
+    <div class="app-container ">
+        <div class="content-area">
+            
+            <header class="header flex  justify-between mb-8">
+                <div class="logo text-7xl" style="color: var(--primary-red); -webkit-text-stroke: #151515 0.9px;">MESSAGES</div>
+                <div class="user-profile flex items-center gap-3">
+                    <div class="user-info">
+                        <div class="user-name text-4xl">User11037</div>
+                        <div class="user-handle text-sm text-red-500" style="font-family: 'Roboto Condensed', sans-serif; text-align: right;">@strawberrychoco</div>
+                    </div>
+                    <div class="avatar-ring" style="border: 3px solid var(--primary-red); padding: 3px; border-radius: 50%;">
+                        <img src="https://i1-e.pinimg.com/control1/736x/18/c5/4c/18c54c41bb0b46f1f7e848b2036adee8.jpg" alt="User" class="w-20 h-19 rounded-full object-cover">
+                    </div>
+                </div>
+            </header>
+
+    <div class="search-container" style="position: relative; margin-bottom: 24px;">
+                <div class="search-icon absolute left-4 top-1/2 -translate-y-1/2">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e63939" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+                <input type="text" class="search-input placeholder-gray-400 " placeholder="What do you wanna find?">
+    </div>
+
+    <div class="actions-row flex gap-5 mb-8">
+                <button class="btn btn-menu" style="border: 3px solid #EB2E2E; box-shadow: 0 3px 5px rgba(0,0,0,0.5);">
+                    <i data-lucide="list-filter" class="w-7 h-7 cursor-pointer" title="list-filter"></i>
+                </button>
+                <button class="btn btn-primary text-1xl text-red-500" style=" border:3px solid #EB2E2E; letter-spacing:0.5px;">Inbox</button>
+                <button class="btn btn-outline text-1xl text-red-500" style="border:3px solid #EB2E2E;letter-spacing:0.5px;">Requests</button>
+                <button class="btn btn-outline text-1xl text-red-500" style="border:3px solid #EB2E2E;letter-spacing:0.5px;">Compose 
+                    <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                </button>
+    </div>
+
+    <div class="messaging-grid">
+                <div class="chat-list" style="overflow-y: auto; scrollbar-width: none;-ms-overflow-style: none;">
+                    <div class="chat-item border-[3px] border-transparent hover:bg-red-200 hover:text-white hover:border-red-500 transition-all">
+                        <div class="item-avatar w-12 rounded-full border-2 border-red-500">
+                            <img src="https://i.pinimg.com/736x/30/14/0d/30140df02b2b5e1f09037862d7f0f401.jpg" alt="Avatar" class="item-avatar-img rounded-full">
+                        </div>
+                        <div class="item-info">
+                            <h3>@berrybloger</h3>
+                            <p class="text-[15px]" style="font-family: 'Roboto Condensed', sans-serif;">You sent a post • 6m ago</p>
+                        </div>
+                    </div>
+    <div class="chat-item border-[3px] border-transparent hover:bg-red-200 hover:text-white hover:border-red-500 transition-all">
+                        <div class="item-avatar w-12 rounded-full border-2 border-red-500">
+                            <img src="https://i.pinimg.com/736x/53/9c/ff/539cff36eab4f6c74f9aefb581d247d3.jpg" alt="Avatar" class="item-avatar-img rounded-full">
+                        </div>
+                        <div class="item-info">
+                            <h3>@alissa.e</h3>
+                            <p class="text-[15px]" style="font-family: 'Roboto Condensed', sans-serif;">You sent a photo • 1s ago</p>
+                        </div>
+                    </div>
+    <div class="chat-item border-[3px] border-transparent hover:bg-red-200 hover:text-white hover:border-red-500 transition-all">
+                        <div class="item-avatar w-12 rounded-full border-2 border-red-500">
+                            <img src="https://i.pinimg.com/1200x/42/ed/72/42ed7236ebd602dac3e258218240ad05.jpg" alt="Avatar" class="item-avatar-img rounded-full">
+                        </div>
+                        <div class="item-info">
+                            <h3>@bellyaliem</h3>
+                            <p class="text-[15px]" style="font-family: 'Roboto Condensed', sans-serif;">Jamie started a call • 30s ago</p>
+                        </div>
+                    </div>
+    <div class="chat-item border-[3px] border-transparent hover:bg-red-200 hover:text-white hover:border-red-500 transition-all">
+                        <div class="item-avatar w-12 rounded-full border-2 border-red-500">
+                            <img src="https://i.pinimg.com/1200x/16/93/9d/16939d659f92b59f707bf54d409435eb.jpg" alt="Avatar" class="item-avatar-img rounded-full">
+                        </div>
+                        <div class="item-info">
+                            <h3>@xaseemz</h3>
+                            <p class="text-[15px]" style="font-family: 'Roboto Condensed', sans-serif;">You sent a photo • 1s ago</p>
+                        </div>
+                    </div>
+    <div class="chat-item border-[3px] border-transparent hover:bg-red-200 hover:text-white hover:border-red-500 transition-all">
+                    <div class="item-avatar w-12 rounded-full border-2 border-red-500">
+                        <img src="https://i.pinimg.com/736x/b2/8b/c9/b28bc92282240032cd623b4b2f8799a5.jpg" alt="Avatar" class="item-avatar-img rounded-full">
+                    </div>
+                <div class="item-info">
+                        <h3>@peachy.gera</h3>
+                        <p class="text-[15px]" style="font-family: 'Roboto Condensed', sans-serif;">Jamie started a call • 30s ago</p>
+                    </div>
+                </div>
+    <div class="chat-item border-[3px] border-transparent hover:bg-red-200 hover:text-white hover:border-red-500 transition-all">
+                        <div class="item-avatar w-12 rounded-full border-2 border-red-500">
+                            <img src="https://i.pinimg.com/1200x/19/bc/56/19bc56c25d69246198ba2bc732851e58.jpg" alt="Avatar" class="item-avatar-img rounded-full">
+                        </div>
+                        <div class="item-info">
+                            <h3>@besttykli</h3>
+                            <p class="text-[15px]" style="font-family: 'Roboto Condensed', sans-serif;">You sent a post • 6m ago</p>
+                        </div>
+                </div>
+                <div class="chat-item border-[3px] border-transparent hover:bg-red-200 hover:text-white hover:border-red-500 transition-all">
+                    <div class="item-avatar w-12 rounded-full border-2 border-red-500">
+                        <img src="https://i.pinimg.com/736x/08/a5/bd/08a5bdb1c091494f1a9ac599624044a3.jpg" alt="Avatar" class="item-avatar-img rounded-full">
+                    </div>
+                    <div class="item-info">
+                        <h3>@syllart</h3>
+                        <p class="text-[15px]" style="font-family: 'Roboto Condensed', sans-serif;">You sent a photo • 1s ago</p>
+                    </div>
+                </div>
+                </div>
+
+                <div class="chat-view flex flex-col gap-4" style="display:flex;flex-direction:column; overflow-y: auto; scrollbar-width: none;-ms-overflow-style: none;">
+                    <div class="separator-line absolute -right flex items-center justify-cente"></div>
+                    
+                    <div class="chat-header">
+                        <div class="item-avatar w-12 rounded-full border-2 border-red-500" style="background: #fecaca; border-color: #EB2E2E;">
+                            <img src="https://i.pinimg.com/736x/30/14/0d/30140df02b2b5e1f09037862d7f0f401.jpg" alt="Avatar" class="item-avatar-img rounded-full">
+                        </div>
+                        <h3 style="font-size: 20px; color: #000000;">@berrybloger</h3>
+                    </div>
+                    
+                        <div style="display:flex;flex-direction:column; overflow-y: auto; scrollbar-width: none;-ms-overflow-style: none;">    
+
+                        <div class="message-bubble" style="flex-direction: row-reverse; align-self: flex-end;">
+                            <div class="border-[3px] rounded-full border-red-500">
+                                <img src="https://i1-e.pinimg.com/control1/736x/18/c5/4c/18c54c41bb0b46f1f7e848b2036adee8.jpg" alt="User" class=" w-14 h-12 rounded-full object-cover">
+                            </div>
+                            <div class="p-4 rounded-3xl shadow-md" style="background: #EDE9E3; font-family: 'Roboto Condensed', sans-serif; border-bottom-right-radius: 0;">Hello, there. Can you give me the recipe?</div>
+                        </div>
+
+                        <div class="message-bubble">
+                            <div class="border-[3px] rounded-full border-red-500">
+                                <img src="https://i.pinimg.com/736x/30/14/0d/30140df02b2b5e1f09037862d7f0f401.jpg" alt="Avatar" class="w-16 h-12 rounded-full object-cover">
+                            </div>
+                            <div class="p-4 rounded-3xl shadow-md" style="background: #EDE9E3; font-family: 'Roboto Condensed', sans-serif; border-bottom-right-radius: 0;">Hi, No sorry. You can get in my master class</div>
+                        </div>
+
+                            <div class="message-bubble" style="flex-direction: row-reverse; align-self: flex-end;">
+                            <div class=" border-[3px] rounded-full border-red-500">
+                                <img src="https://i1-e.pinimg.com/control1/736x/18/c5/4c/18c54c41bb0b46f1f7e848b2036adee8.jpg" alt="User" class="w-18 h-12 rounded-full object-cover">
+                            </div>
+                            <div class="p-4 rounded-2xl shadow-md" style="background: #EDE9E3; font-family: 'Roboto Condensed', sans-serif; border-bottom-right-radius: 0;">Oh.. Thanks!</div> 
+                        </div>
+                        </div>
+                        
+                        <div style="display:flex; align-items:center; justify-content:center; gap:15px;">
+                            <input id="messageInput" type="text" placeholder="Message input" style="flex:1; letter-spacing: 1px; height:40px; border:3px solid #A42F2F; border-radius:999px; padding:0 20px;outline:none; font-size:18px; background:white;">
+                            <button type="button" onclick="console.log('Plus clicked')" style="width:50px; height:40px; border:3px solid #A42F2F; border-radius:15px; background:white; font-size:50px; cursor:pointer;  display:flex; align-items:center; justify-content:center">+</button>
+                            <button id="sendBtn" type="button" onclick="sendMessage()" style="width:50px; height:40px; border:3px solid #A42F2F; border-radius:15px; background:white; cursor:pointer; font-size:28px;">➤</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        
+            <nav class="nav-bar">
+            <div class="flex items-center gap-7">
+                    <div class="app-logo">
+                    <div class="app-logo">
+                <img src="https://github.com/tAssylai/Project/blob/main/logo.png?raw=true" alt="logo" class="logo-img">
+                </div>
+            </div>
+        <a href="home.html" class="nav-item">home</a>
+        <a href="messages.html" class="nav-item active-tab">messages</a>
+        <div class="plus-wrapper">
+            <a href="newpost.html">
+                <div class="plus-circle">+</div>
+            </a>
+        </div>
+        <a href="notifications.html" class="nav-item">notifications</a>
+        <a href="profile.html" class="nav-item">profile</a>
+        </nav>
+    </div>
+    
+                        
+<script>
+    lucide.createIcons();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+        body {
+            font-family: 'Jersey 25', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            --primary-red: #e63939;
+            --bg-cream: #EDE9E3;
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .search-bar {
+            width: 350px;
+            height: 45px;
+            border: 2.5px solid var(--primary-red);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            letter-spacing: 0.03em;
+            margin-left: 10px;
+            font-size: 17px;
+        }
+
+        .tab {
+            padding: 10px 25px;
+            font-weight: 590;
+            font-size: 23px;
+            color: #ccc;
+            cursor: pointer;
+            transition: color 0.2s;
+            letter-spacing: 0.05em;
+        }
+
+        .tab.active {
+            color: var(--primary-red);
+            background: white;
+            border: 2.5px solid var(--primary-red);
+            border-bottom: none;
+            border-radius: 12px 12px 0 0;
+            position: relative;
+            margin-bottom: 0px;
+            margin-left: 0px;
+        }
+
+        .card-img-container {
+            width: 100%;
+            aspect-ratio: 12/10;
+            background: #dcdcdc;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .author-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-red);
+            box-shadow: 0 4px 6px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .play-btn-circle {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-tri {
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 15px solid var(--primary-red);
+            margin-left: 4px;
+        }
+
+        .nav-bar {
+            background-color: #EB2E2E;
+            border-radius: 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 48px;
+            width: 92%;
+            height: 80px;
+            color: white;
+            position: absolute;
+            bottom: 15px;
+            border: 3px solid #bbbbbb;
+            letter-spacing: 0.1em;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nav-item {
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .nav-item.active-tab {
+            background-color: white;
+            color: var(--primary-red);
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px ;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .logo-img {
+           width: 70%;
+           height: 70%;
+           object-fit: cover;
+           object-position: right;
+           transform: translateX(-10%);
+        }
+
+        .app-logo {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: white;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .plus-circle {
+            background-color: #ffffff;
+            width: 50px;
+            height: 40px;
+            border: 3.8px solid #EB2E2E;
+            border-radius: 45%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #EB2E2E;
+            font-size: 2.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        [data-view] { display: none; }
+        [data-view].active-view { display: block; }

@@ -1,0 +1,60 @@
+        body {
+            font-family: 'Jersey 25', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .strawberry-bg {
+            background-color: #ffffff;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><g transform='rotate(15 60 60)'><path d='M30,35 C45,35 51,47 48,65 C45,77 33,83 30,83 C27,83 15,77 12,65 C9,47 15,35 30,35 Z' fill='%23FF5E62'/><path d='M30,39 C29,33 24,30 24,30 C24,30 28,35 29,39 C26,36 20,34 20,34 C20,34 25,39 27,40 C22,40 17,41 17,41 C17,41 23,43 27,42 C29,43 30,45 30,45 C30,45 31,43 33,42 C36,43 42,41 42,41 C42,41 37,40 32,40 C34,39 40,34 40,34 C40,34 34,36 31,39 C32,35 36,30 36,30 C36,30 31,33 30,39 Z' fill='%234CAF50'/><circle cx='23' cy='50' r='1' fill='%23FFE082'/><circle cx='37' cy='50' r='1' fill='%23FFE082'/><circle cx='30' cy='53' r='1' fill='%23FFE082'/><circle cx='26' cy='59' r='1' fill='%23FFE082'/><circle cx='34' cy='59' r='1' fill='%23FFE082'/><circle cx='20' cy='56' r='1' fill='%23FFE082'/><circle cx='40' cy='56' r='1' fill='%23FFE082'/><circle cx='30' cy='65' r='1' fill='%23FFE082'/><circle cx='25' cy='71' r='1' fill='%23FFE082'/><circle cx='35' cy='71' r='1' fill='%23FFE082'/></g><g transform='translate(60, 60) rotate(-10)'><path d='M30,35 C45,35 51,47 48,65 C45,77 33,83 30,83 C27,83 15,77 12,65 C9,47 15,35 30,35 Z' fill='%23FF5E62'/><path d='M30,39 C29,33 24,30 24,30 C24,30 28,35 29,39 C26,36 20,34 20,34 C20,34 25,39 27,40 C22,40 17,41 17,41 C17,41 23,43 27,42 C29,43 30,45 30,45 C30,45 31,43 33,42 C36,43 42,41 42,41 C42,41 37,40 32,40 C34,39 40,34 40,34 C40,34 34,36 31,39 C32,35 36,30 36,30 C36,30 31,33 30,39 Z' fill='%234CAF50'/><circle cx='23' cy='50' r='1' fill='%23FFE082'/><circle cx='37' cy='50' r='1' fill='%23FFE082'/><circle cx='30' cy='53' r='1' fill='%23FFE082'/><circle cx='26' cy='59' r='1' fill='%23FFE082'/><circle cx='34' cy='59' r='1' fill='%23FFE082'/><circle cx='20' cy='56' r='1' fill='%23FFE082'/><circle cx='40' cy='56' r='1' fill='%23FFE082'/><circle cx='30' cy='65' r='1' fill='%23FFE082'/><circle cx='25' cy='71' r='1' fill='%23FFE082'/><circle cx='35' cy='71' r='1' fill='%23FFE082'/></g></svg>");
+            background-size: 110px 110px;
+        }
+
+        .logo-img {
+            width: 170px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .brand-red {
+            background-color: #EB2E2E;
+        }
+        .text-brand-red {
+            color: #EB2E2E;
+        }
+        .brand-green {
+            color: #4C9601;
+        }
+
+        .tab-clip {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .interactive-input {
+            border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+        .interactive-input:focus {
+            border-bottom: 2px solid #ffffff;
+            outline: none;
+            padding-left: 4px;
+        }
+
+        .input-container label {
+            transition: all 0.2s ease;
+            pointer-events: none;
+        }
+        .interactive-input:focus ~ label,
+        .interactive-input:not(:placeholder-shown) ~ label {
+            transform: translateY(-20px) scale(0.85);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .custom-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }

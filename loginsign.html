@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign-In</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="loginsign.css">
+</head>
+<body class="min-h-screen flex items-center justify-center p-6">
+
+    <main class="relative w-full max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-[620px]">
+        
+    <section class="w-full md:w-[42%] md:min-h-full relative flex items-center justify-center p-8" 
+        style="background-image: url('https://i.pinimg.com/1200x/c2/92/be/c292be20d4d016f9c2c8e713959ff993.jpg');background-size: 470px;">            
+        <div class="absolute inset-0 pointer-events-none md:hidden"></div>
+    </section>
+
+        <div class="absolute left-[35%] top-1/2 -translate-y-1/2 -translate-x-1/2 hidden md:flex flex-col z-15">
+            <button id="tab-login" onclick="switchMode('login')" class="tab-clip flex items-center justify-start pl-8 pr-12 py-6 w-44 rounded-l-xl text-3xl tracking-wide shadow-md transition-all duration-300 transform hover:translate-x-2 bg-white text-[#4C9601]">
+                LOGIN
+            </button>
+            <button id="tab-signin" onclick="switchMode('signin')" class="tab-clip flex items-center justify-start pl-8 pr-12 py-6 w-44 rounded-l-xl text-3xl tracking-wide shadow-md transition-all duration-300 transform hover:translate-x-2 bg-[#EB2E2E] text-white border-red-500">
+                SIGN IN
+            </button>
+        </div>
+
+        <section class="w-full md:w-[58%] brand-red text-white p-8 md:p-12 lg:p-16 flex flex-col justify-between relative min-h-[500px]">
+            <div class="flex md:hidden bg-black/10 p-1.5 rounded-xl mb-8"></div>
+
+            <div class="form-content">
+                <div class="text-center mt-[-20px]">
+                    <img src="https://github.com/tAssylai/Project/blob/main/Group%204.png?raw=true" alt="App Logo" class="logo-img"></div>
+
+            <form id="auth-form" onsubmit="handleFormSubmit(event)" class="flex-1 flex flex-col justify-center max-w-md mx-auto md:mr-0 md:ml-auto w-full custom-scroll overflow-y-auto max-h-[400px] pr-2">
+                
+                <div id="signin-fields" class="space-y-10 transition-all duration-300 mt-[50px]">
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="relative input-container">
+                            <input type="text" id="reg-name" placeholder=" " required class="w-full py-2 text-sm interactive-input text-white" />
+                            <label for="reg-name" class="absolute left-0 top-2 text-lg text-white/70 f uppercase tracking-wider">Name</label>
+                        </div>
+                        <div class="relative input-container">
+                            <input type="text" id="reg-username" placeholder=" " required class="w-full py-2 text-sm interactive-input text-white" />
+                            <label for="reg-username" class="absolute left-0 top-2 text-lg text-white/70 uppercase tracking-wider">Username</label>
+                        </div>
+                    </div>
+
+                    <div class="relative input-container">
+                        <input type="email" id="reg-email" placeholder=" " required class="w-full py-2 text-sm interactive-input text-white" />
+                        <label for="reg-email" class="absolute left-0 top-2 text-lg text-white/70 uppercase tracking-wider">Email</label>
+                    </div>
+
+                    <div class="relative input-container">
+                        <input type="password" id="reg-password" placeholder=" " required class="w-full py-2 text-sm interactive-input text-white" />
+                        <label for="reg-password" class="absolute left-0 top-2 text-lg text-white/70  uppercase tracking-wider">Password</label>
+                    </div>
+
+
+                    <div class="relative input-container">
+                        <input type="password" id="reg-repeat-password" placeholder=" " required class="w-full py-2 text-sm interactive-input text-white" />
+                        <label for="reg-repeat-password" class="absolute left-0 top-2 text-lg text-white/70 f uppercase tracking-wider">Repeat Password</label>
+                    </div>
+                </div>
+
+                <div id="login-fields" class="hidden space-y-20 transition-all duration-300  mt-[70px]">
+
+                    <div class="relative input-container">
+                        <input type="text" id="login-identifier" placeholder=" " class="w-full py-2 text-sm interactive-input text-white" />
+                        <label for="login-identifier" class="absolute left-0 top-2 text-lg text-white/70  uppercase tracking-wider">Username</label>
+                    </div>
+
+                    <div class="relative input-container">
+                        <input type="password" id="login-password" placeholder=" " class="w-full py-2 text-sm interactive-input text-white" />
+                        <label for="login-password" class="absolute left-0 top-2 text-lg text-white/70 uppercase tracking-wider">Password</label>
+                    </div>
+                </div>
+            </div>
+
+                <div class="mt-8 flex justify-end">
+                    <button type="submit" id="submit-btn" class="px-8 py-2 rounded-full bg-white text-brand-red text-3xl 
+                    hover:bg-neutral-100 transform active:scale-95 transition-all shadow-md hover:shadow-xl tracking-wide">Sign in</button>
+                </div>
+            </form>
+
+        </section>
+    </main>
+
+ <script>
+
+        let currentMode = 'signin';
+
+        window.onload = () => {
+            switchMode('signin');
+        }
+
+        function switchMode(mode) {
+            currentMode = mode;
+
+            const signinFields = document.getElementById('signin-fields');
+            const loginFields = document.getElementById('login-fields');
+            
+            const tabLogin = document.getElementById('tab-login');
+            const tabSignin = document.getElementById('tab-signin');
+
+            const submitBtn = document.getElementById('submit-btn');
+
+            if (mode === 'signin') {
+
+                signinFields.classList.remove('hidden');
+                loginFields.classList.add('hidden');
+
+                toggleRequiredFields(true);
+
+                submitBtn.innerText = "Sign in";
+
+                tabSignin.className = "tab-clip flex items-center justify-start pl-8 pr-12 py-6 w-44 rounded-l-2xl text-3xl tracking-wide shadow-md transition-all duration-300 transform translate-x-1 bg-[#EB2E2E] text-white z-10 border-r border-red-500";
+                tabLogin.className = "tab-clip flex items-center justify-start pl-8 pr-12 py-6 w-44 rounded-l-2xl text-3xl tracking-wide shadow-sm transition-all duration-300 transform translate-x-6 bg-white text-[#4C9601] hover:translate-x-3";
+
+            } else {
+                signinFields.classList.add('hidden');
+                loginFields.classList.remove('hidden');
+
+                toggleRequiredFields(false);
+
+                submitBtn.innerText = "Login";
+
+                tabSignin.className = "tab-clip flex items-center justify-start pl-8 pr-12 py-6 w-44 rounded-l-2xl text-3xl tracking-wide shadow-sm transition-all duration-300 transform translate-x-6 bg-white text-[#4C9601] hover:translate-x-3";
+                tabLogin.className = "tab-clip flex items-center justify-start pl-8 pr-12 py-6 w-44 rounded-l-2xl text-3xl tracking-wide shadow-md transition-all duration-300 transform translate-x-1 bg-[#EB2E2E] text-white z-10";
+            }
+        }
+
+        function toggleRequiredFields(isSignIn) {
+            document.getElementById('reg-name').required = isSignIn;
+            document.getElementById('reg-username').required = isSignIn;
+            document.getElementById('reg-email').required = isSignIn;
+            document.getElementById('reg-password').required = isSignIn;
+            document.getElementById('reg-repeat-password').required = isSignIn;
+
+            document.getElementById('login-identifier').required = !isSignIn;
+            document.getElementById('login-password').required = !isSignIn;
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            window.location.href = "home.html";
+        }
+
+    </script>
+</html>
+</body>
+
+    

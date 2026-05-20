@@ -1,0 +1,169 @@
+        body {
+            font-family: 'Jersey 25', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .post-card {
+            background: white;
+            border-radius: 32px;
+            width: 100%;
+            max-width: 900px;
+            height: 650px ;
+            padding: 32px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        .cancel-btn {
+            color: black;
+            font-weight: 400;
+            font-size: 1.50rem;
+            letter-spacing: 0.03em;
+        }
+
+        .header-title {
+            color: #EB2E2E; 
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            -webkit-text-stroke: #151515 0.9px;
+        }
+
+        .username {
+            font-size: 1.45rem;
+            color: black;
+        }
+
+        .topic-label {
+            color: #9ca3af;
+            font-size: smaller;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
+        .avatar-container {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 9999px;
+            overflow: hidden;
+            border: 2px solid #ef4444;
+            padding: 2px;
+        }
+
+        .avatar-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 9999px;
+        }
+
+        .toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            color: black;
+        }
+
+        .gif-tag {
+            border: 3px solid black;
+            padding: 2px 6px;
+            border-radius: 8px;
+            letter-spacing: -0.05em;
+            cursor: pointer;
+        }
+
+        .editor-container {
+            background-color: #EDE9E3;
+            border: 3px solid #A42F2F;
+            border-radius: 20px;
+            padding: 20px;
+            min-height: 180px;
+            position: relative;
+        }
+
+        .editor-container textarea {
+            background: transparent;
+            border: none;
+            outline: none;
+            width: 100%;
+            height: 100%;
+            font-size: 1.5rem;
+            resize: none;
+        }
+
+        .nav-bar {
+            background-color: #EB2E2E;
+            border-radius: 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 48px;
+            height: 80px;
+            color: white;
+            position: relative;
+            border: 3px solid #bbbbbb;
+            margin-top: 45px;
+            letter-spacing: 0.1em;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nav-item {
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .logo-img {
+           width: 70%;
+           height: 70%;
+           object-fit: cover;
+           object-position: right;
+           transform: translateX(-10%);
+        }
+
+        .app-logo {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: white;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .plus-circle {
+            background-color: #ffffff;
+            width: 50px;
+            height: 40px;
+            border: 3.8px solid #EB2E2E;
+            border-radius: 45%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #EB2E2E;
+            font-size: 2.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+
+        .btn-post {
+            background: #EB2E2E;
+            color: white;
+            font-weight: 550;
+            font-size: 2rem;
+            padding: 2px 25px;
+            letter-spacing: 0.05em;
+            border-radius: 9999px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.1s;
+        }
+
+        .btn-post:active {
+            transform: scale(0.95);
+        }

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width-device-width, inital scale = 1.0">
+        <title> New Post </title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+        <link rel = "stylesheet" href = "newpost.css">
+    </head>
+    <body>
+
+ <div class="w-full max-w-5xl flex flex-col items-center">
+        
+        <main class="post-card">
+            <header class="flex justify-between items-center mb-">
+                <button class="cancel-btn">Cancel</button>
+                <h1 class="header-title">NEW POST</h1>
+                <nav class="flex space-x-4 text-black">
+                    <i data-lucide="file-text" class="w-8 h-8"></i>
+                    <i data-lucide="circle-ellipsis" class="w-8 h-8"></i>
+                </nav>
+            </header>
+
+            <section class="flex items-center space-x-4 mb-8">
+                <div class="avatar-container">
+                    <img src="https://i1-e.pinimg.com/control1/736x/18/c5/4c/18c54c41bb0b46f1f7e848b2036adee8.jpg" alt="User Avatar">
+                </div>
+                <div class="flex items-center text-xl">
+                    <span class="username">strawberrychoco</span>
+                    <span class="mx-3 text-gray-300">&gt;</span>
+                    <span class="topic-label">Community or topic</span>
+                </div>
+            </section>
+
+            <div class="toolbar">
+                <i data-lucide="image" class="w-9 h-9 cursor-pointer" title="Add Image"></i>
+                <div class="gif-tag">GIF</div>
+                <i data-lucide="remove-formatting" class="w-8 h-8 cursor-pointer" title="Typography"></i>
+                <i data-lucide="bookmark" class="w-8 h-8 cursor-pointer" title="Save Post"></i>
+                <i data-lucide="circle-ellipsis" class="w-8 h-8 cursor-pointer" title="More Options"></i>
+            </div>
+
+            <div class="relative">
+                <div class="editor-container">
+                    <textarea placeholder="Type a text..."></textarea>
+                </div>
+                
+                <div class="flex justify-end mt-6">
+                    <button class="btn-post">Post</button>
+                </div>
+            </div>
+
+            <nav class="nav-bar">
+            <div class="flex items-center gap-7">
+                    <div class="app-logo">
+                    <div class="app-logo">
+                <img src="https://github.com/tAssylai/Project/blob/main/logo.png?raw=true" alt="logo" class="logo-img">
+                </div>
+            </div>
+        <a href="home.html" class="nav-item">home</a>
+        <a href="messages.html" class="nav-item ">messages</a>
+        <div class="plus-wrapper">
+            <a href="newpost.html">
+                <div class="plus-circle">+</div>
+            </a>
+        </div>
+        <a href="notifications.html" class="nav-item">notifications</a>
+        <a href="profile.html" class="nav-item">profile</a>
+        </nav>
+    </div>
+        </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+    </body>
+</html>

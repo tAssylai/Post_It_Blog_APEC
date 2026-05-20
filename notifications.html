@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width-device-width, inital scale = 1.0">
+        <title> Notifications </title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
+         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400&display=swap" rel="stylesheet">
+        <link rel = "stylesheet" href = "notifications.css">
+        </head>
+<body>
+
+    <div class="flex flex-col items-center w-full max-w-4xl">
+        <div class="main-card">            
+            <div class="flex justify-between items-center mb-8">
+                <div class="flex items-center gap-4">
+                    <div class="avatar-ring">
+                        <img src="https://i1-e.pinimg.com/control1/736x/18/c5/4c/18c54c41bb0b46f1f7e848b2036adee8.jpg" alt="User" class=" w-20 h-19 rounded-full object-cover">
+                    </div>
+                    <div>
+                        <h1 class="text-4xl font-regular leading-none">User11037</h1>
+                        <p class="text-red-500 font-normal font-['Roboto_Condensed']">@strawberrychoco</p>
+                    </div>
+                </div>
+
+            <div class="search-bar">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e63939" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" placeholder="What do you wanna find?">
+            </div>
+        </div>
+
+            <div class="text-center mb-8">
+                <h2 class="pixel-font text-7xl text-red-600" style="-webkit-text-stroke: #151515 0.7px;">NOTIFICATIONS</h2>
+            </div>
+
+            <div class="relative px-4">
+                <div class="notification-list">
+                    <div class="notification-item">
+                        <img src="https://i.pinimg.com/736x/1a/a9/07/1aa9071b2c98658f7417c007dc4df78f.jpg" class="w-10 h-10 rounded-full border-2 border-red-600 bg-white p-1">
+                        <div>
+                            <p class="text-black text-xl">@user123 liked your post "Strawberry Slices".</p>
+                            <p class="text-[15px] text-gray-400 flex items-center gap-1">
+                                <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"></path></svg>
+                                2m ago
+                            </p>
+                        </div>
+                        <div class="checkbox-custom"></div>
+                    </div>
+                    <div class="notification-item">
+                        <img src="https://i.pinimg.com/control1/1200x/cb/db/ba/cbdbba01da08c0f82cae2f69844009bd.jpg" class="w-10 h-10 rounded-full border-2 border-red-600 bg-white p-1">
+                        <div>
+                            <p class="text-black text-xl">New reply from @cherry_pie on your comment.</p>
+                            <p class="text-[15px] text-gray-400 flex items-center gap-1">
+                                <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                                1h ago
+                            </p>
+                        </div>
+                        <div class="checkbox-custom"></div>
+                    </div>
+                    <div class="notification-item">
+                        <img src="https://i.pinimg.com/control1/1200x/10/c1/a2/10c1a253f180a3b94400cd35ec12d0f3.jpg" class="w-10 h-10 rounded-full border-2 border-red-600 bg-white p-1">
+                        <div>
+                            <p class="text-black text-xl">@user11033</p>
+                            <p class="text-[15px] text-gray-400">1h ago</p>
+                        </div>
+                        <div class="checkbox-custom"></div>
+                    </div>
+                </div>
+
+                <div class="nested-container">
+                    <div class="notification-item">
+                        <img src="https://i.pinimg.com/control1/736x/87/e2/59/87e25921172f8dad94896329ed65dbf5.jpg" class="w-8 h-8 rounded-full border-2 border-red-600 bg-white p-1">
+                        <div>
+                            <p class="text-black text-xl">@cherrry_liked on mnc</p>
+                            <p class="text-[15px] text-gray-400 flex items-center gap-1">
+                                <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                                1h ago
+                            </p>
+                        </div>
+                        <div class="checkbox-custom"></div>
+                    </div>
+                    <div class="notification-item">
+                        <img src="https://i.pinimg.com/control1/736x/e5/4d/af/e54daf4e34ee4277c80898a3a17a2e51.jpg" class="w-8 h-8 rounded-full border-2 border-red-600 bg-white p-1">
+                        <div>
+                            <p class="text-black text-xl">New reply from @lazyshark on your comment.</p>
+                            <p class="text-[15px] text-gray-400 flex items-center gap-1">
+                                <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"></path></svg>
+                                3h ago
+                            </p>
+                        </div>
+                        <div class="checkbox-custom"></div>
+                    </div>
+                </div>
+
+            <nav class="nav-bar">
+            <div class="flex items-center gap-7">
+                    <div class="app-logo">
+                    <div class="app-logo">
+                <img src="https://github.com/tAssylai/Project/blob/main/logo.png?raw=true" alt="logo" class="logo-img">
+                </div>
+            </div>
+        <a href="home.html" class="nav-item">home</a>
+        <a href="messages.html" class="nav-item ">messages</a>
+        <div class="plus-wrapper">
+            <a href="newpost.html">
+                <div class="plus-circle">+</div>
+            </a>
+        </div>
+        <a href="notifications.html" class="nav-item active-tab">notifications</a>
+        <a href="profile.html" class="nav-item">profile</a>
+        </nav>
+    </div>
+            <img src="https://github.com/tAssylai/Project/blob/main/d457d55f5049dccfe090e8b2a2e7697f-Photoroom.png?raw=true" alt="Cat Illustration" class="cat-illustration" >
+            </div>
+        </div>
+
+</body>
+</html>

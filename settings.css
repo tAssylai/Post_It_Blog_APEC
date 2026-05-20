@@ -1,0 +1,50 @@
+        body {
+            font-family: 'Jersey 25', sans-serif;
+            background-color: #ffffff;
+            min-height: 100vh;
+        }
+        .pixel-font {
+            font-family: 'Jersey 25', monospace;
+            text-transform: uppercase;
+        }
+        .border-red { border-color: #EB2E2E; }
+        .text-red { color: #EB2E2E; }
+        .bg-red { background-color: #EB2E2E; }
+        
+        .input-underline {
+            border-bottom: 2px solid #A42F2F;
+            background: transparent;
+            width: 100%;
+            padding: 4px 0;
+            outline: none;
+        }
+        .input-underline:focus {
+            border-bottom-color: #EB2E2E;
+        }
+        
+        .toggle-switch {
+            width: 44px;
+            height: 24px;
+            background: #bbaea0;
+            border-radius: 99px;
+            position: relative;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .toggle-switch.active { background: #EB2E2E; }
+        .toggle-circle {
+            width: 18px;
+            height: 18px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            transition: 0.2s;
+        }
+        .toggle-switch.active .toggle-circle { transform: translateX(20px); }
+
+        .strawberry-pattern {
+            background-image: radial-gradient(#EB2E2E 2px, transparent 2px);
+            background-size: 10px 10px;
+        }
