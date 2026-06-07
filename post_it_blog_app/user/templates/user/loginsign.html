@@ -35,42 +35,101 @@
                 <img src="https://github.com/tAssylai/Project/blob/main/Group%204.png?raw=true" alt="App Logo" class="logo-img">
             </div>
 
-            <form id="auth-form" onsubmit="handleFormSubmit(event)" class="flex-1 flex flex-col justify-center max-w-md mx-auto md:mr-0 md:ml-auto w-full custom-scroll overflow-y-auto max-h-[400px] pr-2">
+            <form id="auth-form" method="POST" class="flex-1 flex flex-col justify-center max-w-md mx-auto md:mr-0 md:ml-auto w-full custom-scroll overflow-y-auto max-h-[400px] pr-2">
+                {% csrf_token %}
 
-                <div id="signin-fields" class="space-y-10 transition-all duration-300 mt-[50px]">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="relative input-container">
-                            <input type="text" id="reg-name" placeholder=" " required class="w-full py-2 text-sm interactive-input text-white" />
-                            <label for="reg-name" class="absolute left-0 top-2 text-lg text-white/70 uppercase tracking-wider">Name</label>
-                        </div>
-                        <div class="relative input-container">
-                            <input type="text" id="reg-username" placeholder=" " required class="w-full py-2 text-sm interactive-input text-white" />
+                <input type="hidden" id="form-action" name="action" value="register">
+
+                <!-- SIGN UP -->
+                <div id="signin-fields" class="space-y-8 transition-all duration-300 mt-[50px]">
 
                     <div class="relative input-container">
-                        <input type="password" id="reg-password" placeholder=" " required class="w-full py-2 text-sm interactive-input text-white" />
-                        <label for="reg-password" class="absolute left-0 top-2 text-lg text-white/70 uppercase tracking-wider">Password</label>
+                        <input type="text"
+                            id="reg-username"
+                            name="username"
+                            placeholder=" "
+                            class="w-full py-2 text-sm interactive-input text-white">
+                        <label for="reg-username"
+                            class="absolute left-0 top-2 text-lg text-white/70 uppercase tracking-wider">
+                            Username
+                        </label>
                     </div>
 
                     <div class="relative input-container">
-                        <input type="password" id="reg-repeat-password" placeholder=" " required class="w-full py-2 text-sm interactive-input text-white" />
-                        <label for="reg-repeat-password" class="absolute left-0 top-2 text-lg text-white/70 uppercase tracking-wider">Repeat Password</label>
+                        <input type="email"
+                            id="reg-email"
+                            name="email"
+                            placeholder=" "
+                            class="w-full py-2 text-sm interactive-input text-white">
+                        <label for="reg-email"
+                            class="absolute left-0 top-2 text-lg text-white/70 uppercase tracking-wider">
+                            Email
+                        </label>
                     </div>
+
+                    <div class="relative input-container">
+                        <input type="password"
+                            id="reg-password"
+                            name="password1"
+                            placeholder=" "
+                            class="w-full py-2 text-sm interactive-input text-white">
+                        <label for="reg-password"
+                            class="absolute left-0 top-2 text-lg text-white/70 uppercase tracking-wider">
+                            Password
+                        </label>
+                    </div>
+
+                    <div class="relative input-container">
+                        <input type="password"
+                            id="reg-repeat-password"
+                            name="password2"
+                            placeholder=" "
+                            class="w-full py-2 text-sm interactive-input text-white">
+                        <label for="reg-repeat-password"
+                            class="absolute left-0 top-2 text-lg text-white/70 uppercase tracking-wider">
+                            Confirm Password
+                        </label>
+                    </div>
+
                 </div>
 
-                <div id="login-fields" class="hidden space-y-20 transition-all duration-300 mt-[70px]">
+                <!-- LOGIN -->
+                <div id="login-fields" class="hidden space-y-8 transition-all duration-300 mt-[70px]">
+
                     <div class="relative input-container">
-                        <input type="text" id="login-identifier" placeholder=" " class="w-full py-2 text-sm interactive-input text-white" />
-                        <label for="login-identifier" class="absolute left-0 top-2 text-lg text-white/70 uppercase tracking-wider">Username</label>
+                        <input type="text"
+                            id="login-identifier"
+                            name="username"
+                            placeholder=" "
+                            class="w-full py-2 text-sm interactive-input text-white">
+                        <label for="login-identifier"
+                            class="absolute left-0 top-2 text-lg text-white/70 uppercase tracking-wider">
+                            Username
+                        </label>
                     </div>
 
                     <div class="relative input-container">
-                        <label for="login-password" class="absolute left-0 top-2 text-lg text-white/70 uppercase tracking-wider">Password</label>
+                        <input type="password"
+                            id="login-password"
+                            name="password"
+                            placeholder=" "
+                            class="w-full py-2 text-sm interactive-input text-white">
+                        <label for="login-password"
+                            class="absolute left-0 top-2 text-lg text-white/70 uppercase tracking-wider">
+                            Password
+                        </label>
                     </div>
+
                 </div>
 
                 <div class="mt-8 flex justify-end">
-                    <button type="submit" id="submit-btn" class="px-8 py-2 rounded-full bg-white text-brand-red text-3xl
-                    hover:bg-neutral-100 transform active:scale-95 transition-all shadow-md hover:shadow-xl tracking-wide">Sign in</button>
+                    <button type="submit"
+                            id="submit-btn"
+                            class="px-8 py-2 rounded-full bg-white text-brand-red text-3xl
+                                hover:bg-neutral-100 transform active:scale-95 transition-all
+                                shadow-md hover:shadow-xl tracking-wide">
+                        Sign Up
+                    </button>
                 </div>
             </form>
         </div>
@@ -91,40 +150,40 @@
 
         const signinFields = document.getElementById('signin-fields');
         const loginFields = document.getElementById('login-fields');
-        const tabLogin = document.getElementById('tab-login');
-        const tabSignin = document.getElementById('tab-signin');
         const submitBtn = document.getElementById('submit-btn');
+        const formAction = document.getElementById('form-action');
 
         if (mode === 'signin') {
             signinFields.classList.remove('hidden');
             loginFields.classList.add('hidden');
+
+            formAction.value = 'register';
+            submitBtn.innerText = 'Sign Up';
+
             toggleRequiredFields(true);
-            submitBtn.innerText = "Sign in";
-            tabSignin.className = "tab-clip flex items-center justify-start pl-8 pr-12 py-6 w-44 rounded-l-2xl text-3xl tracking-wide shadow-md transition-all duration-300 transform translate-x-1 bg-[#EB2E2E] text-white z-10 border-r border-red-500";
-            tabLogin.className = "tab-clip flex items-center justify-start pl-8 pr-12 py-6 w-44 rounded-l-2xl text-3xl tracking-wide shadow-sm transition-all duration-300 transform translate-x-6 bg-white text-[#4C9601] hover:translate-x-3";
+
+            // keep your existing tab styling...
         } else {
             signinFields.classList.add('hidden');
             loginFields.classList.remove('hidden');
+
+            formAction.value = 'login';
+            submitBtn.innerText = 'Login';
+
             toggleRequiredFields(false);
-            submitBtn.innerText = "Login";
-            tabSignin.className = "tab-clip flex items-center justify-start pl-8 pr-12 py-6 w-44 rounded-l-2xl text-3xl tracking-wide shadow-sm transition-all duration-300 transform translate-x-6 bg-white text-[#4C9601] hover:translate-x-3";
-            tabLogin.className = "tab-clip flex items-center justify-start pl-8 pr-12 py-6 w-44 rounded-l-2xl text-3xl tracking-wide shadow-md transition-all duration-300 transform translate-x-1 bg-[#EB2E2E] text-white z-10";
+
+            // keep your existing tab styling...
         }
     }
 
     function toggleRequiredFields(isSignIn) {
-        document.getElementById('reg-name').required = isSignIn;
         document.getElementById('reg-username').required = isSignIn;
         document.getElementById('reg-email').required = isSignIn;
         document.getElementById('reg-password').required = isSignIn;
         document.getElementById('reg-repeat-password').required = isSignIn;
+
         document.getElementById('login-identifier').required = !isSignIn;
         document.getElementById('login-password').required = !isSignIn;
-    }
-
-    function handleFormSubmit(event) {
-        event.preventDefault();
-        window.location.href = "{% url 'home' %}";
     }
 </script>
 {% endblock %}

@@ -40,18 +40,19 @@
                 </a>
 
                 <a href="{% url 'home' %}" class="nav-item">home</a>
-                <a href="#" class="nav-item">messages</a>
+                <a href="{% url 'inbox' %}" class="nav-item">messages</a>
 
                 <a href="{% url 'newpost' %}">
                     <div class="plus-circle">+</div>
                 </a>
 
-                <a href="#" class="nav-item">notifications</a>
-                <a href="#" class="nav-item">profile</a>
+                <a href="{% url 'notifications' %}" class="nav-item">notifications</a>
+                <a href="{% url 'profile' %}" class="nav-item">profile</a>
 
             </div>
         </nav>
         {% endblock navbar %}
+
     </div>
 
     <script>

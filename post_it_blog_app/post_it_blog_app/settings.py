@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-@61yat63k7*is(0_vj%^y8jnf#(oy#s8v!km27j5p(1bex-)yy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -120,3 +120,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = []  # Add project-level static dirs here if needed
+
+# Media files (user uploads: avatars, post images)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# Default primary key type
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Auth redirects
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/login/'
