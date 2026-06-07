@@ -56,13 +56,15 @@
             justify-content: space-between;
             align-items: center;
             padding: 18px 48px;
+            width: 100%;           /* was: 210% — THIS IS THE BUG */
+            max-width: 900px;
             height: 80px;
             color: white;
-            position: relative;
-            margin-bottom: -19px;
-            width: 210%;
             border: 3px solid #bbbbbb;
             letter-spacing: 0.1em;
+            margin-top: 24px;
+            position: relative;
+            margin-bottom: -19px;
         }
 
         .nav-item {

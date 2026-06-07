@@ -39,10 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'post_it',
-    'auth',
-    'messages',
+    'user',
+    'chat',
     'notifications',
-    'posts',
 ]
 
 MIDDLEWARE = [

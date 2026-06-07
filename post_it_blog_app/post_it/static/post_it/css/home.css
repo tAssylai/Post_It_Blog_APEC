@@ -1,6 +1,7 @@
         body {
             font-family: 'Jersey 25', sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
@@ -100,14 +101,14 @@
             align-items: center;
             padding: 18px 48px;
             width: 92%;
+            max-width: 920px;
             height: 80px;
             color: white;
-            position: absolute;
-            bottom: 15px;
             border: 3px solid #bbbbbb;
             letter-spacing: 0.1em;
-            left: 50%;
-            transform: translateX(-50%);
+            margin-top: 24px;
+            margin-bottom: 16px;
+            flex-shrink: 0;
         }
 
         .nav-item {

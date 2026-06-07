@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}App{% endblock %}</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Your global CSS -->
+    {% block css %}
+    {% endblock %}
+</head>
+
+<body class="bg-[#f5f1eb]">
+
+    <!-- MAIN WRAPPER -->
+    <div class="min-h-screen flex flex-col items-center">
+
+        {% block content %}
+        {% endblock %}
+
+        <!-- NAVBAR (shared) -->
+        <nav class="nav-bar">
+            <div class="flex items-center gap-11">
+
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'img/logo.png' %}" class="logo-img">
+                </a>
+
+                <a href="{% url 'home' %}" class="nav-item">home</a>
+                <a href="#" class="nav-item">messages</a>
+
+                <a href="{% url 'newpost' %}">
+                    <div class="plus-circle">+</div>
+                </a>
+
+                <a href="#" class="nav-item">notifications</a>
+                <a href="#" class="nav-item">profile</a>
+
+            </div>
+        </nav>
+
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+    {% block scripts %}
+    {% endblock %}
+
+</body>
+</html>

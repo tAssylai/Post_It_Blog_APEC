@@ -104,14 +104,13 @@
             justify-content: space-between;
             align-items: center;
             padding: 18px 48px;
+            width: 100%;
+            max-width: 900px;
             height: 80px;
             color: white;
-            position: relative;
             border: 3px solid #bbbbbb;
-            margin-top: 45px;
             letter-spacing: 0.1em;
-            left: 50%;
-            transform: translateX(-50%);
+            margin-top: 45px;
         }
 
         .nav-item {
