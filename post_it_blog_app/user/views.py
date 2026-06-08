@@ -4,25 +4,27 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import Profile
+from django.views.decorators.http import require_POST
 
 
-# ── Auth ──────────────────────────────────────────────────────────────────────
+# ── AUTH ─────────────────────────────────────────────
 
 def loginsign(request):
-    """Combined login / register page."""
     if request.user.is_authenticated:
         return redirect('home')
 
     if request.method == 'POST':
-        action = request.POST.get('action')  # 'login' or 'register'
+        action = request.POST.get('action')
 
         if action == 'login':
             username = request.POST.get('username', '').strip()
             password = request.POST.get('password', '')
+
             user = authenticate(request, username=username, password=password)
             if user:
                 login(request, user)
                 return redirect('home')
+
             messages.error(request, 'Invalid username or password.')
 
         elif action == 'register':
@@ -36,7 +38,11 @@ def loginsign(request):
             elif User.objects.filter(username=username).exists():
                 messages.error(request, 'Username already taken.')
             else:
-                user = User.objects.create_user(username=username, email=email, password=password1)
+                user = User.objects.create_user(
+                    username=username,
+                    email=email,
+                    password=password1
+                )
                 Profile.objects.create(user=user)
                 login(request, user)
                 return redirect('home')
@@ -44,31 +50,35 @@ def loginsign(request):
     return render(request, 'user/loginsign.html')
 
 
+@require_POST
 def logout_view(request):
     logout(request)
     return redirect('loginsign')
 
 
-# ── Profile ───────────────────────────────────────────────────────────────────
+# ── PROFILE ─────────────────────────────────────────
 
 @login_required
 def profile(request):
-    """Show the currently logged-in user's own profile."""
     profile_obj, _ = Profile.objects.get_or_create(user=request.user)
-    posts = request.user.posts.all()
+    posts = request.user.posts.all() if hasattr(request.user, "posts") else []
+
     return render(request, 'user/profile.html', {
         'profile': profile_obj,
         'posts': posts,
+        'is_own': True,
     })
 
 
 @login_required
 def user_profile(request, username):
-    """Show any user's public profile."""
     target_user = get_object_or_404(User, username=username)
     profile_obj, _ = Profile.objects.get_or_create(user=target_user)
-    posts = target_user.posts.all()
+
+    posts = target_user.posts.all() if hasattr(target_user, "posts") else []
+
     is_following = request.user.profile.following.filter(pk=profile_obj.pk).exists()
+
     return render(request, 'user/profile.html', {
         'profile': profile_obj,
         'posts': posts,
@@ -80,6 +90,7 @@ def user_profile(request, username):
 @login_required
 def follow_toggle(request, username):
     target_user = get_object_or_404(User, username=username)
+
     my_profile, _ = Profile.objects.get_or_create(user=request.user)
     their_profile, _ = Profile.objects.get_or_create(user=target_user)
 
@@ -91,28 +102,29 @@ def follow_toggle(request, username):
     return redirect('user_profile', username=username)
 
 
-# ── Settings ──────────────────────────────────────────────────────────────────
+# ── SETTINGS ─────────────────────────────────────────
 
 @login_required
 def settings_view(request):
     profile_obj, _ = Profile.objects.get_or_create(user=request.user)
 
     if request.method == 'POST':
-        bio = request.POST.get('bio', '').strip()
-        avatar = request.FILES.get('avatar')
+        profile_obj.bio = request.POST.get('bio', '').strip()
+        profile_obj.display_name = request.POST.get('display_name', '').strip()
 
-        profile_obj.bio = bio
+        avatar = request.FILES.get('avatar')
         if avatar:
             profile_obj.avatar = avatar
+
         profile_obj.save()
 
-        first_name = request.POST.get('first_name', '').strip()
-        last_name = request.POST.get('last_name', '').strip()
-        request.user.first_name = first_name
-        request.user.last_name = last_name
+        request.user.email = request.POST.get('email', '').strip()
+        request.user.first_name = request.POST.get('first_name', '').strip()
         request.user.save()
 
         messages.success(request, 'Settings saved.')
         return redirect('settings')
 
-    return render(request, 'user/settings.html', {'profile': profile_obj})
+    return render(request, 'user/settings.html', {
+        'profile': profile_obj
+    })
