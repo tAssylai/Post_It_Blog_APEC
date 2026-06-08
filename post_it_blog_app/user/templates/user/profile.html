@@ -14,7 +14,15 @@
         <div class="flex justify-between items-start mb-8">
             <div class="flex items-center gap-4">
                 <div class="w-20 h-20 rounded-full border-[3px] border-red-500 p-1">
-                    <img src="https://i1-e.pinimg.com/control1/736x/18/c5/4c/18c54c41bb0b46f1f7e848b2036adee8.jpg" alt="User Avatar" class="rounded-full">
+                    {% if profile.avatar %}
+                        <img src="{{ profile.avatar.url }}"
+                            alt="User Avatar"
+                            class="rounded-full w-full h-full object-cover">
+                    {% else %}
+                        <img src="{% static 'user/images/default_avatar.png' %}"
+                            alt="User Avatar"
+                            class="rounded-full w-full h-full object-cover">
+                    {% endif %}
                 </div>
                 <div>
                     <h1 class="text-4xl font-regular leading-none">User11037</h1>
