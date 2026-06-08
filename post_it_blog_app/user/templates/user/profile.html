@@ -25,8 +25,13 @@
                     {% endif %}
                 </div>
                 <div>
-                    <h1 class="text-4xl font-regular leading-none">User11037</h1>
-                    <p class="text-red-500 font-normal font-['Roboto_Condensed']">@strawberrychoco</p>
+                    <h1 class="text-4xl font-regular leading-none">
+                        {{ profile.user.get_full_name|default:profile.user.username }}
+                    </h1>
+
+                    <p class="text-red-500 font-normal font-['Roboto_Condensed']">
+                        @{{ profile.user.username }}
+                    </p>
                 </div>
             </div>
             <a href="{% url 'settings' %}" class="settings-btn text-xl">Settings
@@ -42,11 +47,11 @@
                 <div class="grid grid-cols-3 gap-4">
                     <div class="stat-box custom-border">
                         <span class="text-[22px] uppercase letter-spacing-[0.05em]">Followers</span>
-                        <span class="pixel-font text-red-500 text-5xl" style="-webkit-text-stroke: #151515 0.9px;">10.3K</span>
+                        <span class="pixel-font text-red-500 text-5xl" style="-webkit-text-stroke: #151515 0.9px;">{{ profile.follower_count }}</span>
                     </div>
                     <div class="stat-box custom-border">
                         <span class="text-[22px] uppercase letter-spacing-[0.05em]">Following</span>
-                        <span class="pixel-font text-red-500 text-5xl" style="-webkit-text-stroke: #151515 0.9px;">677</span>
+                        <span class="pixel-font text-red-500 text-5xl" style="-webkit-text-stroke: #151515 0.9px;">{{ profile.following_count }}</span>
                     </div>
                     <div class="stat-box custom-border bg-[#EDE9E3]">
                         <span class="text-[22px] uppercase letter-spacing-[0.05em]">Streak</span>
@@ -58,7 +63,7 @@
                     <div class="flex-1">
                         <h2 class="pixel-font text-red-500 text-6xl" style="-webkit-text-stroke: #151515 0.9px;">MY BIO</h2>
                         <p class="text-xs font-['Roboto_Condensed']">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            {{ profile.bio|default:"No bio yet." }}
                         </p>
                     </div>
                     <div class="cat-illustration">
