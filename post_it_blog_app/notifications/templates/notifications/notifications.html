@@ -12,12 +12,20 @@
     <div class="main-card">
         <div class="flex justify-between items-center mb-8">
             <div class="flex items-center gap-4">
-                <div class="avatar-ring">
-                    <img src="https://i1-e.pinimg.com/control1/736x/18/c5/4c/18c54c41bb0b46f1f7e848b2036adee8.jpg" alt="User" class="w-20 h-19 rounded-full object-cover">
+                <div class="w-20 h-20 rounded-full border-[3px] border-red-500 p-1">
+                    {% if profile.avatar %}
+                        <img src="{{ profile.avatar_url }}"
+                            alt="User Avatar"
+                            class="rounded-full w-full h-full object-cover">
+                    {% else %}
+                        <img src="{% static 'user/images/default_avatar.png' %}"
+                            alt="User Avatar"
+                            class="rounded-full w-full h-full object-cover">
+                    {% endif %}
                 </div>
                 <div>
-                    <h1 class="text-4xl font-regular leading-none">User11037</h1>
-                    <p class="text-red-500 font-normal font-['Roboto_Condensed']">@strawberrychoco</p>
+                    <h1 class="text-4xl font-regular leading-none">{{ profile.display_name|default:request.user.username }}</h1>
+                    <p class="text-red-500 font-normal font-['Roboto_Condensed']">@{{ request.user.username }}</p>
                 </div>
             </div>
 
@@ -62,9 +70,6 @@
                     </div>
                     <div class="checkbox-custom"></div>
                 </div>
-            </div>
-
-            <div class="nested-container">
                 <div class="notification-item">
                     <img src="https://i.pinimg.com/control1/736x/87/e2/59/87e25921172f8dad94896329ed65dbf5.jpg" class="w-8 h-8 rounded-full border-2 border-red-600 bg-white p-1" alt="User avatar">
                     <div>
@@ -88,8 +93,6 @@
                     <div class="checkbox-custom"></div>
                 </div>
             </div>
-
-            <img src="https://github.com/tAssylai/Project/blob/main/d457d55f5049dccfe090e8b2a2e7697f-Photoroom.png?raw=true" alt="Cat Illustration" class="cat-illustration">
         </div>
     </div>
 </div>

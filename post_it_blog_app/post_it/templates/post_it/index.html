@@ -9,13 +9,28 @@
 <div class="app-container w-[1000px] rounded-3xl shadow-[0_0_30px_rgba(0,0,0,0.15)] relative pb-28">
             <div class="profile-section px-10 py-8 flex items-center justify-between">
                 <div class="flex items-center gap-4">
-                    <div class="border-[3px] border-red-500 p-1 rounded-full">
-                        <img src="https://i1-e.pinimg.com/control1/736x/18/c5/4c/18c54c41bb0b46f1f7e848b2036adee8.jpg"
-                            alt="User" class=" w-20 h-19 rounded-full object-cover">
+                    <div class="w-20 h-20 rounded-full border-[3px] border-red-500 p-1">
+                        {% if profile.avatar %}
+                            <img src="{{ profile.avatar_url }}"
+                                alt="User Avatar"
+                                class="rounded-full w-full h-full object-cover">
+                        {% else %}
+                            <img src="{% static 'user/images/default_avatar.png' %}"
+                                alt="User Avatar"
+                                class="rounded-full w-full h-full object-cover">
+                        {% endif %}
                     </div>
+
                     <div>
-                        <h1 class="text-4xl font-regular leading-none">User11037</h1>
-                        <p class="text-red-500 font-normal font-['Roboto_Condensed']">@strawberrychoco</p>
+                        <!-- DISPLAY NAME -->
+                        <h1 class="text-4xl font-regular leading-none">
+                            {{ profile.display_name|default:request.user.username }}
+                        </h1>
+
+                        <!-- USERNAME -->
+                        <p class="text-red-500 font-normal font-['Roboto_Condensed']">
+                            @{{ request.user.username }}
+                        </p>
                     </div>
                 </div>
 

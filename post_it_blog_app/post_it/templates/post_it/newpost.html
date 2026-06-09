@@ -22,12 +22,15 @@
 
         <section class="flex items-center space-x-4 mb-8">
             <div class="avatar-container">
-                <img src="https://i1-e.pinimg.com/control1/736x/18/c5/4c/18c54c41bb0b46f1f7e848b2036adee8.jpg"
-                    alt="User Avatar">
+                <img src="{{ profile.avatar.url }}" alt="User Avatar">
             </div>
             <div class="flex items-center text-xl">
-                <span class="username">strawberrychoco</span>
+                <span class="username">
+                    {{ profile.display_name|default:request.user.username }}
+                </span>
+
                 <span class="mx-3 text-gray-300">&gt;</span>
+
                 <span class="topic-label">Community or topic</span>
             </div>
         </section>
