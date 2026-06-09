@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.db.models import Count
+from django.db.models import Count, Q
 from django.contrib.auth.models import User
 
 from .models import Post, Like, Comment, Follow, Profile
@@ -13,19 +13,28 @@ from .models import Post, Like, Comment, Follow, Profile
 @login_required
 def home(request):
     user = request.user
+    query = request.GET.get("q", "").strip()
+
+    posts_base = Post.objects.select_related(
+        'author', 'author__profile'
+    ).prefetch_related(
+        'likes', 'comments'
+    )
+
+    if query:
+        posts_base = posts_base.filter(
+            Q(title__icontains=query) |
+            Q(content__icontains=query)
+        )
 
     featured_posts = (
-        Post.objects
-        .select_related('author', 'author__profile')
-        .prefetch_related('likes', 'comments')
+        posts_base
         .annotate(like_count=Count('likes'))
         .order_by('-like_count', '-created_at')[:10]
     )
 
     recent_posts = (
-        Post.objects
-        .select_related('author', 'author__profile')
-        .prefetch_related('likes', 'comments')
+        posts_base
         .order_by('-created_at')[:20]
     )
 
@@ -34,27 +43,26 @@ def home(request):
     ).values_list('following_id', flat=True)
 
     following_posts = (
-        Post.objects
+        posts_base
         .filter(author_id__in=following_ids)
-        .select_related('author', 'author__profile')
-        .prefetch_related('likes', 'comments')
         .order_by('-created_at')[:20]
     )
 
     following_users = User.objects.filter(id__in=following_ids)
 
     profile = None
+
     if request.user.is_authenticated:
         profile, _ = Profile.objects.get_or_create(user=request.user)
-
+    
     return render(request, 'post_it/index.html', {
         'profile': profile,
         'featured_posts': featured_posts,
         'recent_posts': recent_posts,
         'following_posts': following_posts,
         'following_users': following_users,
+        'query': query,
     })
-
 
 # -------------------------
 # NEW POST

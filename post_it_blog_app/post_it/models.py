@@ -24,11 +24,11 @@ class Profile(models.Model):
 
     @property
     def follower_count(self):
-        return self.followers.count()
+        return self.user.followers.count()
 
     @property
     def following_count(self):
-        return self.following.count()
+        return self.user.following.count()
 
 
 class Follow(models.Model):
