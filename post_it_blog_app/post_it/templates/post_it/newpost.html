@@ -11,47 +11,60 @@
 <div class="w-full max-w-5xl flex flex-col items-center">
 
     <main class="post-card">
-        <header class="flex justify-between items-center mb-">
-            <button class="cancel-btn">Cancel</button>
-            <h1 class="header-title">NEW POST</h1>
-            <nav class="flex space-x-4 text-black">
-                <i data-lucide="file-text" class="w-8 h-8"></i>
-                <i data-lucide="circle-ellipsis" class="w-8 h-8"></i>
-            </nav>
-        </header>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
 
-        <section class="flex items-center space-x-4 mb-8">
-            <div class="avatar-container">
-                <img src="{{ profile.avatar.url }}" alt="User Avatar">
+            <header class="flex justify-between items-center mb-6">
+                <a href="{% url 'home' %}" class="cancel-btn">Cancel</a>
+                <h1 class="header-title">NEW POST</h1>
+
+                <nav class="flex space-x-4 text-black">
+                    <i data-lucide="file-text" class="w-8 h-8"></i>
+                    <i data-lucide="circle-ellipsis" class="w-8 h-8"></i>
+                </nav>
+            </header>
+
+            <section class="flex items-center space-x-4 mb-8">
+                <div class="avatar-container">
+                    <img src="{{ profile.avatar.url }}" alt="User Avatar">
+                </div>
+                <div class="flex items-center text-xl">
+                    <span class="username">
+                        {{ profile.display_name|default:request.user.username }}
+                    </span>
+
+                    <span class="mx-3 text-gray-300">&gt;</span>
+
+                    <span class="topic-label">Community or topic</span>
+                </div>
+            </section>
+
+            <div class="toolbar">
+                <label class="cursor-pointer">
+                    <i data-lucide="image" class="w-9 h-9"></i>
+                    <input type="file" name="image" hidden>
+                </label>
+                <div class="gif-tag">GIF</div>
+                <i data-lucide="remove-formatting" class="w-8 h-8 cursor-pointer" title="Typography"></i>
+                <i data-lucide="bookmark" class="w-8 h-8 cursor-pointer" title="Save Post"></i>
+                <i data-lucide="circle-ellipsis" class="w-8 h-8 cursor-pointer" title="More Options"></i>
             </div>
-            <div class="flex items-center text-xl">
-                <span class="username">
-                    {{ profile.display_name|default:request.user.username }}
-                </span>
 
-                <span class="mx-3 text-gray-300">&gt;</span>
-
-                <span class="topic-label">Community or topic</span>
-            </div>
-        </section>
-
-        <div class="toolbar">
-            <i data-lucide="image" class="w-9 h-9 cursor-pointer" title="Add Image"></i>
-            <div class="gif-tag">GIF</div>
-            <i data-lucide="remove-formatting" class="w-8 h-8 cursor-pointer" title="Typography"></i>
-            <i data-lucide="bookmark" class="w-8 h-8 cursor-pointer" title="Save Post"></i>
-            <i data-lucide="circle-ellipsis" class="w-8 h-8 cursor-pointer" title="More Options"></i>
-        </div>
-
-        <div class="relative">
-            <div class="editor-container">
-                <textarea placeholder="Type a text..."></textarea>
+            <div class="header-container">
+                <input name="title" placeholder="New post!" value="Untitled">
             </div>
 
-            <div class="flex justify-end mt-6">
-                <button class="btn-post">Post</button>
+            <div class="relative">
+                <div class="editor-container">
+                    <textarea name="content" placeholder="Type a text..." required></textarea>
+                </div>
+
+                
+                <div class="flex justify-end mt-6">
+                    <button type="submit" class="btn-post">Post</button>
+                </div>
             </div>
-        </div>
+        </form>
     </main>
 
 </div>

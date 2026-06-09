@@ -28,6 +28,13 @@
     </div>
 
     <section class="w-full md:w-[58%] brand-red text-white p-8 md:p-12 lg:p-16 flex flex-col justify-between relative min-h-[500px]">
+        {% if messages %}
+            {% for message in messages %}
+                {% if forloop.last %}
+                    <div class="bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-semibold shadow">{{ message }}</div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
         <div class="flex md:hidden bg-black/10 p-1.5 rounded-xl mb-8"></div>
 
         <div class="form-content">
@@ -44,9 +51,9 @@
                 <div id="signin-fields" class="space-y-8 transition-all duration-300 mt-[50px]">
 
                     <div class="relative input-container">
-                        <input type="text"
-                            id="reg-username"
-                            name="username"
+                        <input type="text" 
+                            id="reg-username" 
+                            name="reg_username"
                             placeholder=" "
                             class="w-full py-2 text-sm interactive-input text-white">
                         <label for="reg-username"
@@ -97,9 +104,9 @@
                 <div id="login-fields" class="hidden space-y-8 transition-all duration-300 mt-[70px]">
 
                     <div class="relative input-container">
-                        <input type="text"
-                            id="login-identifier"
-                            name="username"
+                        <input type="text" 
+                            id="login-identifier" 
+                            name="login_username"
                             placeholder=" "
                             class="w-full py-2 text-sm interactive-input text-white">
                         <label for="login-identifier"
@@ -109,9 +116,9 @@
                     </div>
 
                     <div class="relative input-container">
-                        <input type="password"
-                            id="login-password"
-                            name="password"
+                        <input type="password" 
+                            id="login-password" 
+                            name="login_password"
                             placeholder=" "
                             class="w-full py-2 text-sm interactive-input text-white">
                         <label for="login-password"
@@ -142,7 +149,8 @@
     let currentMode = 'signin';
 
     window.onload = () => {
-        switchMode('signin');
+        let initialMode = '{{ action|default:"register" }}' === 'login' ? 'login' : 'signin';
+        switchMode(initialMode);
     }
 
     function switchMode(mode) {
@@ -160,7 +168,9 @@
             formAction.value = 'register';
             submitBtn.innerText = 'Sign Up';
 
-            toggleRequiredFields(true);
+            // Enable sign-in inputs, disable login inputs
+            setInputsDisabled(signinFields, false);
+            setInputsDisabled(loginFields, true);
 
             // keep your existing tab styling...
         } else {
@@ -170,10 +180,25 @@
             formAction.value = 'login';
             submitBtn.innerText = 'Login';
 
-            toggleRequiredFields(false);
+            // Enable login inputs, disable sign-in inputs
+            setInputsDisabled(signinFields, true);
+            setInputsDisabled(loginFields, false);
 
             // keep your existing tab styling...
         }
+
+        // Still call your required fields toggle (you already have it)
+        toggleRequiredFields(mode === 'signin');
+    }
+
+    // Helper function – add/remove the disabled attribute from all inputs inside a container
+    function setInputsDisabled(container, disabled) {
+        container.querySelectorAll('input').forEach(input => {
+            input.disabled = disabled;
+            if (disabled) {
+                input.removeAttribute('required');
+            }
+        });
     }
 
     function toggleRequiredFields(isSignIn) {

@@ -14,15 +14,9 @@
         <div class="flex justify-between items-start mb-8">
             <div class="flex items-center gap-4">
                 <div class="w-20 h-20 rounded-full border-[3px] border-red-500 p-1">
-                    {% if profile.avatar %}
-                        <img src="{{ profile.avatar_url }}"
-                            alt="User Avatar"
-                            class="rounded-full w-full h-full object-cover">
-                    {% else %}
-                        <img src="{% static 'user/images/default_avatar.png' %}"
-                            alt="User Avatar"
-                            class="rounded-full w-full h-full object-cover">
-                    {% endif %}
+                    <img src="{{ profile.avatar_url }}"
+                        alt="{{ profile.user.username }}'s avatar"
+                        class="rounded-full w-full h-full object-cover">
                 </div>
                 <div>
                     <h1 class="text-4xl font-regular leading-none">

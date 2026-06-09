@@ -97,6 +97,26 @@
             resize: none;
         }
 
+        .header-container {
+            background-color: #EDE9E3;
+            border: 3px solid #A42F2F;
+            border-radius: 20px;
+            padding: 20px;
+            min-height: 40px;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .header-container input {
+            background: transparent;
+            border: none;
+            outline: none;
+            width: 100%;
+            height: 100%;
+            font-size: 1.5rem;
+            resize: none;
+        }
+
         .nav-bar {
             background-color: #EB2E2E;
             border-radius: 28px;

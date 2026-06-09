@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .models import Profile
+from post_it.models import Profile
 from django.views.decorators.http import require_POST
 
 
@@ -13,22 +13,21 @@ def loginsign(request):
     if request.user.is_authenticated:
         return redirect('home')
 
-    if request.method == 'POST':
-        action = request.POST.get('action')
+    action = request.POST.get('action', 'register')
 
+    if request.method == 'POST':
         if action == 'login':
-            username = request.POST.get('username', '').strip()
-            password = request.POST.get('password', '')
+            username = request.POST.get('login_username', '').strip()   # <-- CHANGED
+            password = request.POST.get('login_password', '')           # <-- CHANGED
 
             user = authenticate(request, username=username, password=password)
             if user:
                 login(request, user)
                 return redirect('home')
-
             messages.error(request, 'Invalid username or password.')
 
         elif action == 'register':
-            username = request.POST.get('username', '').strip()
+            username = request.POST.get('reg_username', '').strip()    # <-- CHANGED
             email = request.POST.get('email', '').strip()
             password1 = request.POST.get('password1', '')
             password2 = request.POST.get('password2', '')
@@ -47,8 +46,11 @@ def loginsign(request):
                 login(request, user)
                 return redirect('home')
 
-    return render(request, 'user/loginsign.html')
+        # If we reach here, an error occurred – pass the action back
+        return render(request, 'user/loginsign.html', {'action': action})
 
+    # GET request
+    return render(request, 'user/loginsign.html', {'action': action})
 
 @require_POST
 def logout_view(request):
